@@ -108,19 +108,21 @@ class DiscourseRewards::Rewards
   def refuse_user_reward(opts)
     @user_reward.update!(cancel_reason: opts[:cancel_reason])
     @user_reward.destroy!
-    @reward.update!(quantity: @reward.quantity + 1)
-
     publish_user_reward!
-    publish_reward!(quantity: true)
     publish_points!
 
-    PostCreator.new(
-      @user,
-      title: 'Unable to grant the reward',
-      raw: "We are sorry to announce that #{@user_reward.reward.title} Award has not been granted to you because #{@user_reward.cancel_reason}. Please try to redeem another award @#{@user_reward.user.username}",
-      category: SiteSetting.discourse_rewards_grant_topic_category,
-      skip_validations: true
-    ).create!
+    if @reward
+      PostCreator.new(
+        @user,
+        title: 'Unable to grant the reward',
+        raw: "We are sorry to announce that #{@user_reward.reward.title} Award has not been granted to you because #{@user_reward.cancel_reason}. Please try to redeem another award @#{@user_reward.user.username}",
+        category: SiteSetting.discourse_rewards_grant_topic_category,
+        skip_validations: true
+      ).create!
+
+      @reward.update!(quantity: @reward.quantity + 1)
+      publish_reward!(quantity: true)
+    end
 
     @user_reward
   end
@@ -128,6 +130,7 @@ class DiscourseRewards::Rewards
   private
 
   def link_image_to_post(upload_id)
+    UploadReference.create(upload_id: upload_id, target_type: "Post", target_id: Post.first.id) unless UploadReference.find_by(upload_id: upload_id)
     PostUpload.create(post_id: Post.first.id, upload_id: upload_id) unless PostUpload.find_by(upload_id: upload_id)
   end
 

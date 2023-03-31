@@ -60,6 +60,10 @@ Reward.reopenClass({
     }
 
     rewards = rewards.map((rewardJson) => {
+      if (!rewardJson) {
+        return {};
+      }
+
       rewardJson.created_by = User.create(rewardJson.created_by);
       rewardJson.user_rewards = UserReward.create(rewardJson.user_rewards);
 

@@ -8,5 +8,9 @@ module DiscourseRewards
     belongs_to :created_by, class_name: 'User'
 
     default_scope { where(deleted_at: nil) }
+
+    def destroy
+      update_attribute(:deleted_at, Time.now)
+    end
   end
 end
