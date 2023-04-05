@@ -153,6 +153,12 @@ export default Component.extend({
 
   actions: {
     saveReward() {
+      if (!this.reward.upload_id) {
+        bootbox.alert("Please Select Image Before Uploading");
+
+        return;
+      }
+
       this.set("forceValidationReason", true);
       const validation = [this.pointsValidation, this.quantityValidation].find(
         (v) => v.failed

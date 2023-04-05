@@ -122,6 +122,14 @@ class DiscourseRewards::Rewards
 
       @reward.update!(quantity: @reward.quantity + 1)
       publish_reward!(quantity: true)
+    else
+      PostCreator.new(
+        @user,
+        title: 'The reward is no longer available',
+        raw: "We are sorry to announce that your redeemed Award is no longer availabe due to some technical reasons. Please try to redeem another award @#{@user_reward.user.username}",
+        category: SiteSetting.discourse_rewards_grant_topic_category,
+        skip_validations: true
+      ).create!
     end
 
     @user_reward
@@ -141,6 +149,7 @@ class DiscourseRewards::Rewards
     }.merge!(status)
 
     MessageBus.publish("/u/rewards", message)
+    publish_points!
   end
 
   def publish_points!
@@ -158,5 +167,6 @@ class DiscourseRewards::Rewards
     }
 
     MessageBus.publish("/u/user-rewards", message)
+    publish_points!
   end
 end
