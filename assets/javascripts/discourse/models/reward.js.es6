@@ -16,13 +16,9 @@ Reward.reopenClass({
       type = "PUT";
     }
 
-    return ajax(url, { type, data })
-      .then((rewardJson) => {
-        return this.createFromJson(rewardJson);
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
+    return ajax(url, { type, data }).then((rewardJson) => {
+      return this.createFromJson(rewardJson);
+    });
   },
 
   destroy(reward) {
