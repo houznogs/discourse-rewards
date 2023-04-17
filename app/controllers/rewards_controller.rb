@@ -73,7 +73,7 @@ module DiscourseRewards
     def destroy
       params.require(:id)
 
-      reward = DiscourseRewards::Reward.find(params[:id]).destroy
+      reward = DiscourseRewards::Reward.find(params[:id])
 
       reward = DiscourseRewards::Rewards.new(current_user, reward).destroy_reward
 
