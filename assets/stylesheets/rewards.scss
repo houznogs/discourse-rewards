@@ -146,9 +146,10 @@
 }
 
 .leaderboard-users-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1em;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-gap: 1em;
+  display: none;
 }
 
 .rank {
@@ -181,25 +182,28 @@
 
 .leaderboard {
   .heading {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    // display: flex;
+    // justify-content: space-between;
+    // margin-bottom: 10px;
+    display: none;
 
     span {
-      font-size: $font-up-1;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
+      // font-size: $font-up-1;
+      // font-weight: bold;
+      // display: flex;
+      // align-items: center;
+      display: none;
     }
   }
 }
 
 .leaderboard-card {
-  border: 1px solid var(--primary-low);
-  padding: 0.5em;
-  display: flex;
-  justify-content: center;
-  position: relative;
+  // border: 1px solid var(--primary-low);
+  // padding: 0.5em;
+  // display: flex;
+  // justify-content: center;
+  // position: relative;
+  display: none;
 
   &.current-user {
     background-color: var(--primary-low);
