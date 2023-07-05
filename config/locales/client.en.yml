@@ -103,42 +103,42 @@ en:
       point:
         one: "积分"
         other: "积分"
-      leaderboard:
-        praise: "" #"你的排名是： %{rank}, %{postfix}"
-        nav: "" #"排行榜"
-        title: "" #"排行榜"
-        filters:
-          all-time: "" #"总"
-          campaign: "" #"活动"
-        praise_user:
-          top_10:
-            praise_1: "" #"NB"
-            praise_2: "" #"NB"
-            praise_3: "" #"NB"
-          top_100:
-            praise_1: "" #"NB"
-            praise_2: "" #"NB"
-            praise_3: "" #"NB"
-          above_100:
-            praise_1: "" #"加油！"
-      #leaderboard:
-        #praise: "你的排名是： %{rank}, %{postfix}"
-        #nav: "排行榜"
-        #title: "排行榜"
-        #filters:
-          #all-time: "总"
-          #campaign: "活动"
-        #praise_user:
-          #top_10:
-            #praise_1: "NB"
-            #praise_2: "NB"
-            #praise_3: "NB"
-          #top_100:
-            #praise_1: "NB"
-            #praise_2: "NB"
-            #praise_3: "NB"
-          #above_100:
-            #praise_1: "加油！"
+      # leaderboard:
+      #   praise: "" #"你的排名是： %{rank}, %{postfix}"
+      #   nav: "" #"排行榜"
+      #   title: "" #"排行榜"
+      #   filters:
+      #     all-time: "" #"总"
+      #     campaign: "" #"活动"
+      #   praise_user:
+      #     top_10:
+      #       praise_1: "" #"NB"
+      #       praise_2: "" #"NB"
+      #       praise_3: "" #"NB"
+      #     top_100:
+      #       praise_1: "" #"NB"
+      #       praise_2: "" #"NB"
+      #       praise_3: "" #"NB"
+      #     above_100:
+      #       praise_1: "" #"加油！"
+      # leaderboard:
+      #   praise: "你的排名是： %{rank}, %{postfix}"
+      #   nav: "排行榜"
+      #   title: "排行榜"
+      #   filters:
+      #     all-time: "总"
+      #     campaign: "活动"
+      #   praise_user:
+      #     top_10:
+      #       praise_1: "NB"
+      #       praise_2: "NB"
+      #       praise_3: "NB"
+      #     top_100:
+      #       praise_1: "NB"
+      #       praise_2: "NB"
+      #       praise_3: "NB"
+      #     above_100:
+      #       praise_1: "加油！"
       edit_reward:
         modal_title: "调整奖品"
       title: "奖品"
