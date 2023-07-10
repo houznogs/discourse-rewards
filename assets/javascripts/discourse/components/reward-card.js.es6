@@ -9,8 +9,12 @@ export default Component.extend({
     return userPath(this.username);
   },
 
-  click: computed("current_user.available_points", "reward.points", function() {
-    const availablePoints = this.current_user.available_points;
+  availablePoints: computed("current_user.available_points", function() {
+    return this.current_user.available_points;
+  }),
+
+  click() {
+    const availablePoints = this.availablePoints;
     const rewardPoints = this.reward.points;
 
     if (rewardPoints > availablePoints || this.reward.quantity < 1) {
@@ -25,7 +29,7 @@ export default Component.extend({
         },
       });
     }
-  }),
+  },
 
 
   @computed("current_user.available_points", "reward.points")
