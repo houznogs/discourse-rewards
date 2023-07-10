@@ -9,16 +9,24 @@ export default Component.extend({
     return userPath(this.username);
   },
 
-  click() {
-    showModal("reward-view", {
-      model: {
-        reward: this.reward,
-        grant: this.grant,
-        redeem: this.redeem,
-        user_reward: this.user_reward,
-      },
-    });
-  },
+  click: computed("current_user.available_points", "reward.points", function() {
+    const availablePoints = this.current_user.available_points;
+    const rewardPoints = this.reward.points;
+
+    if (rewardPoints > availablePoints || this.reward.quantity < 1) {
+      this.disableRedeemButton();
+    } else {
+      showModal("reward-view", {
+        model: {
+          reward: this.reward,
+          grant: this.grant,
+          redeem: this.redeem,
+          user_reward: this.user_reward,
+        },
+      });
+    }
+  }),
+
 
   @computed("current_user.available_points", "reward.points")
   get disableRedeemButton() {
