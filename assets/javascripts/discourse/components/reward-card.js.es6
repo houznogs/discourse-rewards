@@ -10,7 +10,7 @@ export default Component.extend({
   },
 
   click() {
-  /*  showModal("reward-view", {
+    showModal("reward-view", {
       model: {
         reward: this.reward,
         grant: this.grant,
@@ -18,20 +18,6 @@ export default Component.extend({
         user_reward: this.user_reward,
       },
     });
-  */
-
-    if (this.reward.points > this.currentUser.available_points || this.reward.quantity < 1) {
-      this.disableRedeemButton();
-    } else {
-      showModal("reward-view", {
-        model: {
-          reward: this.reward,
-          grant: this.grant,
-          redeem: this.redeem,
-          user_reward: this.user_reward,
-        },
-      });
-    }
   },
 
   @computed("current_user.available_points", "reward.points")
