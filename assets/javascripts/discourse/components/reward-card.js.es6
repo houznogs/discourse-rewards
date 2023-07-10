@@ -17,7 +17,7 @@ export default Component.extend({
     const availablePoints = this.availablePoints;
     const rewardPoints = this.reward.points;
 
-    if (rewardPoints < （availablePoints - rewardPoints) && this.reward.quantity > 0) {
+    if (rewardPoints < (availablePoints - rewardPoints) && this.reward.quantity > 0) {
       showModal("reward-view", {
         model: {
           reward: this.reward,
