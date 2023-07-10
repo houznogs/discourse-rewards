@@ -17,9 +17,7 @@ export default Component.extend({
     const availablePoints = this.availablePoints;
     const rewardPoints = this.reward.points;
 
-    if (rewardPoints > availablePoints || this.reward.quantity < 1) {
-      this.disableRedeemButton();
-    } else {
+    if (rewardPoints < （availablePoints - rewardPoints) && this.reward.quantity > 0) {
       showModal("reward-view", {
         model: {
           reward: this.reward,
