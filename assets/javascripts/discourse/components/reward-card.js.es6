@@ -25,6 +25,7 @@ export default Component.extend({
         },
       });
     }
+    location.reload(true);
   },
 
 
