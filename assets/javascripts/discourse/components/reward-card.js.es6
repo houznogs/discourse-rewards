@@ -10,11 +10,11 @@ export default Component.extend({
   },
 
   availablePoints: computed("current_user.available_points", function() {
+    location.reload(true);
     return this.current_user.available_points;
   }),
 
   click() {
-
     if (this.rewardPoints < this.availablePoints && this.reward.quantity > 0) {
       showModal("reward-view", {
         model: {
@@ -25,7 +25,6 @@ export default Component.extend({
         },
       });
     }
-    location.reload(true);
   },
 
 
